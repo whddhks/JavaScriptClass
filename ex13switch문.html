@@ -1,0 +1,54 @@
+<!-- ex13switch문.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex13switch문.html</title>
+</head>
+<body>
+    <h1>switch~case문을 이용한 실습</h1>
+    prompt로 "가고싶은 포탈 사이트 이름을 입력하세요" 
+    메시지를 띄우고 입력을 받는다. (ex. 네이버, 구글....)<br>
+    switch~case문 이용해서 해당 사이트로 이동하는 프로그램을 작성하세요 (location객체 이용)
+    <hr color='red'>
+    <button onclick="window.location.href='http://www.naver.com'">페이지 이동</button>
+    <script>
+        let str=prompt('가고싶은 사이트를 입력하세요');
+        // let naver='http://www.naver.com';
+        // let daum='http://www.daum.net';
+        // let google='http://www.google.com';
+        // let nate='http://www.nate.com'
+        // //네이버 구글 다음 네이트
+        // switch(str){
+        //     case '네이버' :location.href=naver ;location.target='_blank';
+        //     break;
+        //     case '다음'   :location.href=daum;
+        //     break;
+        //     case '구글'   :location.href=google;
+        //     break;
+        //     case '네이트' :location.href=nate;
+        //     break;
+        // }
+        
+        let url='';
+        switch(str){
+            case '네이버' :url='http://www.naver.com' ;
+            break;
+            case '다음'   :url='http://www.daum.net';
+            break;
+            case '구글'   :url='http://www.google.com';
+            break;
+            case '네이트' :url='http://www.nate.com';
+            break;
+        }
+        location.target='_blank';
+        location.href=url;
+        
+       // let win = window.open(url,"popup", "width=500px, height=500px") ; //팝업창 띄우기
+        
+        
+    </script>
+</body>
+</html>

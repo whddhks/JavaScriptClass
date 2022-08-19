@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">  
+  <title>29BOM_history객체.html</title>
+ </head>
+ <body>
+  <h1 style="color:magenta">두번째 페이지</h1>
+  <a href="his03.html">3페이지 이동</a>
+  <p>
+  <input type="button" value="이전 페이지" onclick="window.history.back()">
+  <input type="button" value="다음 페이지로" onclick="history.forward()">
+
+  <hr>
+  <!-- a태그의 href속성값에 자바스크립트 코드를 삽입하려면
+        javascript: 프로토콜을 앞에 붙인뒤 자바스크립트 코드를 넣어줘야 한다
+-->
+
+  <a href="javascript:history.back()">
+    <h3>한 단계 이전 페이지로 가기</h3>
+  </a>
+  <a href="javascript:history.forward()">
+    <h3>한 단계 이후 페이지로 가기</h3>
+  </a>
+  </p>
+ </body>
+</html>

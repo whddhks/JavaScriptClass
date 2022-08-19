@@ -1,0 +1,71 @@
+<!-- ex20BOM_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex20BOM_form.html</title>
+    <script>
+        function check(){
+            //유효성 체크 form()의 이름.input의 이름.value
+            let val=frm.name.value;
+            if(val=="") {
+                alert('이름을 입력 해야해요');
+                frm.name.focus();
+                return;
+                //submit 버튼일 경우 return을 해도 서버에 전송한다.
+
+                //=>[1] button의type을 일반 버튼으로 설정한 뒤 , form객체를 통해 submit()한다.
+            }
+            // 이름의 경우 5자를 초과할 경우 이름은 5자 이내여야해요
+            //문자열 length 속성 사용하기
+            if(val.length>5){
+                alert('이름은 5자 이내여야 해요')
+                frm.name.select();
+                return;
+            }
+            //alert(frm.action); //getter
+            //alert(frm.method);
+            frm.action='idfind.jsp'; //setter1
+            frm.method='get';
+            frm.submit();
+        }
+        function check2(){
+            //form에 name을 주지 않을 경우 => window.document.forms[0] 식으로 접근한다.
+            let f=window.document.forms[1];
+            
+            if(f.name.value==""){
+                alert('이름을 입력해요')
+                f.name.focus();
+                return;
+            }
+            if(!f.id.value){
+                alert('아이디를 입력해요');
+                f.id.focus();
+                return;
+            }
+            f.method='post';
+            f.submit();
+        }
+    </script>
+</head>
+<body>
+    <h1>BOM - form 객체</h1>
+    <form name="frm" id="frm" action="findId" method="post">
+        <h2>아이디 찾기</h2>
+        이름 : <input type="text" name="name" id="name">
+        <button type="button" onclick="check()">submit</button>
+    </form>
+
+    <hr color="red">
+
+    <form action="findPwd.jsp">
+        <h1>비밀번호 찾기</h1>
+        이름: <input type="text" name="name"><p></p>
+        아이디: <input type="text" name="id"><p></p>
+        <button type="button" onclick="check2()">Submit</button>
+    </form>
+
+</body>
+</html>

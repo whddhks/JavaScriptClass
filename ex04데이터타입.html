@@ -1,0 +1,58 @@
+<!-- ex04데이터타입.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04데이터타입.html</title>
+</head>
+<body>
+    <h1>자바스크립트 자료유형</h1>
+    <h2>기본자료형: 숫자(number),논리 (boolean),문자열(String), undefined</h2>
+    <h2>참조형: Object, function, null</h2>
+    <!-- url 의 경우 location 일반 화면이 document -->
+    <script>
+            //변수 선언 : var,let,const(final 같은놈)
+            var a;
+            a=10; // a:정수 유형 number
+        window.document.write("a="+a,"<br>")
+        //부모.자식.쓸거 부모 생략가능
+        document.write("a의 자료형="+typeof a, "<br>")
+        a="Hi" //String 문자열
+        document.write("a의 자료형2= "+typeof(a),"<br>")
+        a='안녕';
+
+        let intNum=100; //number
+        let doublenum=5.123;//nnumber
+
+        var bool=true; // boolean
+        var obj1=null; // null 암것도 없음
+        var obj2; //undefined 값이 정해져있지 않다
+        var str='이것은 문자열';// string
+        document.write(typeof intNum,'<br>')
+        document.write(typeof doublenum,'<br>')
+        document.write(typeof bool,'<br>')
+        document.write(typeof obj1,'<br>')
+        document.write(typeof obj2,'<br>')
+        document.write(typeof str)
+
+        document.write('<hr color="red">')
+        //참조유형
+        //객체(속성(값)+행동양식(메소드))
+        var car=new Object();
+        car.color='deeppink';
+        //객체명.속성=값
+        car.capacity=2000;
+        car.run= function(){
+            //이름없는 함수랑 비슷하다 펑션을 run에 넣는것
+            document.write("<h2>"+this.color+"색상의 자동차가 달려요")
+        }
+        alert(car.capacity)
+        //함수호출
+        car.run();
+        document.write(car, typeof car)
+
+    </script>
+</body>
+</html>

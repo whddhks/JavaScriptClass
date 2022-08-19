@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex24실습.html</title>
+    <style>
+        body{
+            background-color: black;
+            color : white;
+        }
+        div#movies{
+            width: 44%;
+            margin: 50px;
+            text-align: center;
+            border: 2px solid white;
+            display: none;
+            position: absolute;
+        }
+        div#btns{
+            width: 50%;
+            margin: auto;
+            /* border: 1px solid white; */
+            text-align: center;
+            padding: 5px;
+        }
+        div#btns button{
+            width: 120px;
+            height: 30px;
+
+        }
+        div#movies img{
+            width: 150px;
+            height: 212.6px;
+            border : 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="btns">
+        <button id="btn1" >현재상영작</button>
+        <button id="btnPlay">Play</button>
+        <button id="btnStop">Stop</button>
+        </div>
+        <div id="movies" >
+          
+        </div>
+        <!-- <input type="img" url="m1.PNG"> -->
+    </div>
+    <script>
+        let movies=["m1.PNG","m2.PNG","m3.PNG","m4.PNG","m5.PNG"]
+        let btn1=document.getElementById('btn1');
+        let divMovies=document.getElementById('movies');
+        let btnPlay=document.querySelector('#btnPlay')
+        let btnStop=document.querySelector('#btnStop')
+        wid=null;
+        let x=0;
+        let i=0.5;
+
+        btn1.onclick=function(){
+            let str=``;
+            movies.forEach(function(movie){
+                console.log(movie);
+                str+=`<img src="${movie}">`
+            })
+            divMovies.innerHTML=str;
+            divMovies.style.display='block';
+        }
+
+        btnPlay.onclick=function(){
+            divMovies.style.position='absolute';
+            if(wid==null){
+                wid=setInterval(function(){
+                    //alert(document.body.clientWidth); //창크기 알려줌 정확히는 client 뒤에 붙은 것?
+                    if(x>document.body.clientWidth-800){
+                        i=-0.5;
+                    }
+                    if(x<0){
+                        i=0.5;
+                    }
+                    divMovies.style.left=x+'px';
+                    x=x+i;
+                },4);
+            }
+        }
+
+        btnStop.onclick=function(){
+            if(wid!=null){
+                clearInterval(wid);
+                wid=null;
+            }
+        }
+    </script>
+
+</body>
+</html>

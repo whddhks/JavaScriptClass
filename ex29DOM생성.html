@@ -1,0 +1,54 @@
+<!-- ex29DOM생성.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex29DOM생성.html</title>
+</head>
+<body>
+    <h1>DOM - 새로운 Element 를 생성해서 추가해보자.</h1>
+    <button id='bt1'>새로운 요소 생성1</button>
+    <button id='bt2'>새로운 요소 생성2</button>
+    <hr color='red'>
+    <div id="result">
+
+    </div>
+    <script>
+        let bt1=document.getElementById('bt1');
+        let bt2=document.getElementById('bt2');
+        let result=document.getElementById('result');
+
+
+        //1 bt1에 클릭이벤트 처리 addEventListener를 사용하기
+        //          <img> 이미지를 동적으로 추가 하기 리절트에
+        bt1.addEventListener('click',function(){
+            let str=`<img src='m1.PNG'>`
+            result.innerHTML=str;
+        })
+        //bt2 클릭시 이미지 추가하기
+        /*
+        createElement('엘리먼트명') : 새로운 엘리먼트 생성
+        createTextNode('텍스트') : 새로운 택스트 생성
+        부모요소.appendChild(엘리먼트객체)
+        부모요소.insertBefore(엘리먼트 객체, target) target앞에 붙인다.
+        속성추가시 : 요소.setAttribute('속성명','속성값')
+        */
+        bt2.onclick=function(){
+            let objh2=document.createElement('h2');
+            let txt=document.createTextNode('HelloJavaScript');
+            objh2.appendChild(txt);
+            objh2.setAttribute('style','color:red')
+            result.appendChild(objh2);
+            let objimg=document.createElement('img');
+            objimg.setAttribute('src','m2.PNG');
+            objimg.setAttribute('width','150px');
+            objimg.setAttribute('height','220px');
+            //result.appendChild(objimg);
+            result.insertBefore(objimg, objh2)
+        }
+        //이미지를 붙이는데 result img엘리먼트 생성한뒤에 속성 값을 지정
+    </script>
+</body>
+</html>

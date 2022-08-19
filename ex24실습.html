@@ -1,0 +1,89 @@
+<!-- ex24실습.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex24실습.html</title>
+    <style>
+        body{
+            background-color: black;
+            color : white;
+        }
+        div#movies{
+            width: 35.6%;
+            margin: 50px;
+            text-align: center;
+            border: 2px solid white;
+            display: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="btns">
+        <button id="btn1" onclick="showmovies()">현재상영작</button>
+        <button id="btnPlay" onclick="move()">Play</button>
+        <button id="btnStop">Stop</button>
+        </div>
+        <div id="movies" >
+          
+        </div>
+        <!-- <input type="img" url="m1.PNG"> -->
+    </div>
+    <script>
+        obj=null;
+        wid=null;
+        wid2=null;
+        //[1] 현재 상영중인 영화 이미지들 5개를 배열에 저장하세요.
+        //[2] 현재 상영작 버튼을 누르면 배열에 저장한 영화 이미지를
+        //id가 movies인 곳에 나타나도록 처리하세요
+        function showmovies(){   
+            if(obj==null){
+                let obj=document.getElementById('movies');
+                var m1='<input type="image" src="m1.PNG">';
+                var m2='<input type="image" src="m2.PNG">';
+                var m3='<input type="image" src="m3.PNG">';
+                var m4='<input type="image" src="m4.PNG">';
+                var m5='<input type="image" src="m5.PNG">';
+                var movie=[m1,m2,m3,m4,m5];
+                for (var i=0;i<movie.length;i++){
+                obj.innerHTML+=movie[i];
+                }
+                obj.style.display='block';
+            }
+        }
+        //[3]▶️ 버튼을 누르면 영화 이미지들이 오른쪽으로 이동하도록 하세요
+        //    오른쪽 끝으로 다 이동하면 다시 왼쪽으로 이동시키고,
+        //    왼쪽 끝에 이동하면 다시 오른쪽으로 이동시키세요
+        
+        function move() {
+            let obj=document.getElementById('movies');
+            let x=50;
+            // if(x<=100){
+            // wid=window.setInterval(function(){                
+            //     x+=0.5;
+            //     obj.style.left=x+`px`;
+            // },4)
+            // }else if (x>100){
+            // wid2=window.setInterval(function(){                
+            //     x-=0.5;
+            //     obj.style.left=x+`px`;
+            // },4)}
+            while(x<=100){
+                setTimeout(()=>{
+                    x+=0.5
+                    obj.style.left=x+'px';
+                },4)
+            }
+
+
+            
+        }
+
+
+    </script>
+</body>
+</html>

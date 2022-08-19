@@ -1,0 +1,75 @@
+<!-- ex22Array.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex22Array.html</title>
+    
+</head>
+<body>
+    <h1>배열 - Array</h1>
+    <script>
+        /*[1] literal을 이용해서 배열 객체 생성하는 방법
+          [2] Array()를 이용하는 방법
+
+
+          JS 표기법
+          {} : 객체
+          [] : 배열
+        */
+
+
+       let user ={
+        name: '홍길동',
+        age: 22,
+        addr: '부산'
+       }
+       //[1] literal을 이용한 배열 객체 방법
+       let arr=[10,20,'JavaScript', 3.141592,true];
+       //alert(typeof arr);
+       //alert(typeof user);
+       //for 루프 이용해서 배열arr에 저장된 값을 document.write 하세여
+       for(var i=0;i<arr.length;i++){
+        document.write(arr[i]+' , ');
+       }
+       //[2] Array() 이용
+       //[2-1] 
+       var arr2=Array();
+      // alert(arr2.length);
+       arr2[0]="Hi";
+       arr2[1]="javascript";
+       document.write('<br>',arr2,'<br>')
+       var arr3=Array(3);//배열 3
+       arr.push(100);
+       console.log('arr3.length= '+arr3.length);
+       var arr4=Array(77,88,92,100)
+       for (var i=0;i<arr4.length;i++){
+        document.write(arr4[i]+'<br>');
+       }
+</script>
+<hr color="red">
+<script>
+    //for in 루프문 이용
+    //for(속성 in 객체|배열)
+    for(i in arr4){ 
+        document.write(`<h3>${arr4[i]}</h3>`)
+    }
+    for(var attr in user){
+        document.write(`<h3>${attr}</h3>`)
+    } //속성이라 name age addr 이 나옴
+    for(var attr2 in user){
+        document.write(`<h3>${user[attr2]}</h3>`)
+    }// 이렇게하면 배열 안에 있는 정보가 나온다.
+
+    // 배열의 함수 
+    // - forEach(함수(value, index)(핸들러함수임))
+    arr4.forEach(function(value,i){
+        document.write(`<h3 style='color:red'>${value}=> ${i}</h3>`)
+    });
+    //배열에 저장된 요소 (item)를 알아서 반복돌면서 callback 함수의 매개 변수에 전달한다.
+    
+</script>
+</body>
+</html>

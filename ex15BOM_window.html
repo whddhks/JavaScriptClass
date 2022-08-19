@@ -1,0 +1,109 @@
+<!-- ex15BOM_window.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex15BOM_window.html</title>
+    <style>
+        div#circle{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            border-radius: 50%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>window객체의 setTimeout()/clearTimeout()활용</h2>
+    <h2>window객체의 setInterval()/clearInterval()활용</h2>
+    <button onclick="show()">Click Me</button>
+    <button onclick="go()">GoGO</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="goGoogle()">3초 뒤에 구글로 이동</button>
+    <button onclick="move()">Move</button>
+    <!-- [1] gogoogle 함수에서 location이동해사3초뒤에 구글로 이동하기 
+         [2] move()함수 에서 circle 객체를 참조해서 circle을 보여준 뒤에 x좌표를 300px 인 위치로 이동시키되, 4초뒤에 이동시키기-->
+    <hr>
+    <div id="circle">
+
+    </div>
+    <script>
+        var wid=null;
+        
+        const show= function(){
+            //id 가 circle인 요소를 찾아서 해당요소의 style을 이용해서 display 속성값을 변경하세요
+            let obj=document.getElementById('circle');
+            obj.style.display='block';
+            obj.style.backgroundColor='tomato';
+            //자바스크립트에서는 하이폰(-)이 빼기 연산자로 사용되므로 하이폰을 뺴고 대신 하이폰뒤에 오는 첫글자를 대문자로
+            // if(obj.style.display=='block'){
+            //     obj.style.display='none';
+            // }
+        }
+        
+        function go() {
+            let obj=document.querySelector('#circle') //getElementByID와 같은 역할을 하지만 다양하게 사용가능
+            //window.setTimeout(함수명, 밀리초): 밀리초 이후에 함수를 호출한다.
+            //window.clearTimeout(wid) : setTimeou을 중지시킴
+            wid=window.setTimeout(show,3000);// 1/1000초 한번만 호출한다.
+        }
+        
+        function stop() {
+            if(wid!=0){
+                window.clearTimeout(wid);
+            }
+        }
+        
+
+        function google(){
+            let url='http://www.google.com';
+            location.href=url;
+        }
+        function goGoogle(){
+            let url='http://www.google.com';
+            
+            goo=window.setTimeout(google,3000);
+            
+            //자바의 어나미너스클래스
+            setTimeout(function(){
+                location.href=url;
+            },3000)
+
+            // 자바의 람다식
+            setTimeout(()=>{
+                location.href=url
+            },3000)
+
+        }
+
+
+        // const moveto=function() {
+        //     let obj=document.querySelector('#circle')
+        //     obj.style.left='300px'
+        //     obj.style.position='absolute'
+        // }
+        const move=function(){
+            let obj=document.querySelector('#circle')
+            obj.style.display='block';
+           //1번쨰  mv=window.setTimeout(moveto,4000);
+            /*2번쨰
+            setTimeout(function(){
+                obj.style.position='absolute';
+                obj.style.left='300px';
+            },4000)*/
+
+            //3번째 방법(많이 씀) ES6 이후 화살표 함수 ()=>{}
+            setTimeout(()=>{
+                obj.style.position='absolute';
+                obj.style.left='300px';
+            },3000)
+        }
+
+
+
+    </script>
+</body>
+</html>

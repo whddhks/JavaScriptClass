@@ -1,0 +1,53 @@
+<!-- 27Event.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex27Event.html</title>
+    <style>
+        div#result{
+            width: 500px;
+            height: 500px;
+            border: 1px solid silver;
+            margin: 1em;
+        }
+        input{
+            width: 400px    ;
+            padding: 3px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            let input1=document.querySelectorAll('input');
+            let result1=document.getElementById('result');
+            //alert('input[0]');
+            //let val=input1[0].value
+            input1[0].onkeydown=function(evt){
+                // console.log(evt)
+                //엔터값을 치면 input1[0]으 ㅣ입력ㄱ밧을 얻어서 id가 result인 div요소 안에 메세지를 출력하세요
+                
+                if(evt.keyCode==13){
+                    let str=this.value;
+                    result1.innerHTML+=str+'<br>'; //겹겹이
+                    this.value='';//비우기
+                    this.focus();
+                }
+
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>메세지:</label>
+        <input type="text" name="msg" >
+    </div>
+    <div id="result">
+
+
+    </div>
+</body>
+</html>

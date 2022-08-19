@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex16BOM_window.html</title>
+    <style>
+        #circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: olivedrab;
+            position: absolute;
+            top:200px;
+        }
+    </style>
+    <script>
+        let wid=null;
+        let obj=null;
+        //window.onload 속성
+        //window객체가 로드된 후에 익명 함수를 실행하란 의미
+        window.onload=function(){
+            let obj=document.getElementById('circle');
+            //alert(obj);// null 이뜬다
+        }
+        function show(){
+            if(wid==null){
+           wid=window.setInterval(function(){
+            alert('꽝!?');
+           },3000)}
+        }
+        function stop(){
+            if(wid!=null)
+            window.clearInterval(wid)
+        }
+        let x=10;
+        function move(){
+            let obj=document.getElementById('circle');
+            if(wid==null){
+                wid=window.setInterval(function(){
+                if(x>700){
+                    x=50;
+                }
+                    x+=10
+                    obj.style.left=x+`px`
+            },20)
+        }
+         
+        }
+
+        function movestop(){
+            if(wid!=null)
+            window.clearInterval(wid)
+            wid=null;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>window객체의 setInterval()/clearInterval()의 활용</h1>
+    <!-- setInterval : 밀리초 단위로함수를 주기적으로 계속 수행한다. -->
+    <!-- [실습] Move버튼을 누르면 circle의 x좌표를 이동시켜서 공이 굴러가게 하세요
+                MoveStop버튼 누르면 공굴리기 중지시키기
+     -->
+    <button onclick="show()">Click me</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="move()">Move</button>
+    <button onclick="movestop()">Movestop</button>
+    <button onclick="window.alert('반갑습니다.')">alert</button>
+    <button onclick="let str=prompt('메세지 입력'); alert(str);">prompt</button>
+    <button onclick="ask()">confirm</button>
+
+    <hr>
+    <div id="circle"></div>
+
+    <script>
+        function ask(){ //그냥 확인창임
+            let yn=confirm('네이버로 이동할까요?') //확인은 true 취소는 false
+            if(yn){
+                location.href='http://www.naver.com';
+            }
+        }
+    </script>
+</body>
+</html>

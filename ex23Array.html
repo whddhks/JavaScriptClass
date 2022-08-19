@@ -1,0 +1,72 @@
+<!-- ex23Array.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex23Array.html</title>
+</head>
+<body>
+    <h1>Array메소드</h1>
+    <h3>push(): 배열에 새로운 요소를 마지막에 추가한다.</h3>
+    <h3>concat(): 배열의 요소를 모두 합쳐 배열을 만들어 리턴한다.</h3>
+    <h3>join(): 배열 안의 모든 요소를 문자열로 만들어 반환한다.</h3>
+    <h3>pop(): 배열의 마지막 요소를 제거하고 반환한다.</h3>
+    <h3>shift(): 배열의 첫번째 요소를 제거하고 반환한다.</h3>
+    <h3>sort() : 오름차순으로 정렬하여 반환한다.</h3>
+    <hr>
+    <script>
+        const a= 10; //final
+        // alert(a);
+        // a='Hi' [x]
+        const fruits=["Banana","Apple","Orange","Mango"]
+        //[1] 키위를 배열 마지막에 추가 한다음에 forEach()함수 를 이용해 모두 출력
+        fruits.push("kiwi");
+        fruits.forEach(function(value,i){
+            document.write(`<h3>${value}=>${i}</h3>`)
+        });
+        let str = fruits.join('#');
+        document.write(`<h3>${str}</h3>`)
+         //첫번쨰 요소 삭제
+         let obj=fruits.shift();
+         document.write(`<h3>삭제한 배열은 ${obj} 입니다.</h3>
+                        <h3>${fruits}</h3>`)
+        //첫번쨰 요소에 추가
+                        fruits.unshift('Lemon');
+        document.write(`<h3>${fruits}</h3>`);
+
+        //마지막 요소 삭제
+        fruits.pop();
+        document.write(`<h3>${fruits}</h3>`)
+
+        //delete 연산자를 이용한 삭제
+        delete fruits[2];
+        document.write(`<h3>${fruits}</h3>`)
+        //splice(시작 인텍스, [삭제할 개수], [새로 추가할 요소])를 이용한 삭제
+        fruits.splice(1,[1],['water melon']);
+        document.write(`<h3>${fruits}</h3>`);
+
+        let drinks=["Juice","Coke","Coffee"];
+        
+        let sum=fruits.concat(drinks); //concat 은 원본을 건드리지 않는다.
+        document.write(`<h3>${sum}</h3>`)
+        document.write(`<h3>${fruits}</h3>`)
+
+    </script>
+    <h3>slice(): 배열의 일부를 조각내어 새로운 배열로 반환한다</h3>
+    <h3>splice(): 요소에 지정한 부분을 삭제하고 삭제한 요소를 반환한다.</h3>
+    <hr>
+    <script>
+        //push()
+        //array의 인덱스 3부터 6의 직전까지 조각 내가
+        //slice(start,end+1)
+        //splice();
+        let sum2=sum.slice(3,6);
+        document.write(`<h3>${sum2}</h3>`)
+        
+    </script>
+
+
+</body>
+</html>

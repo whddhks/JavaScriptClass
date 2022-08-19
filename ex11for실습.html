@@ -1,0 +1,41 @@
+<!-- ex11for실습.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>ex11for실습.html</title>
+    <style>
+        .tb{
+            width: 80%;
+            margin: auto;
+            border: thick solid seagreen;
+            text-align: center;
+        }
+        .tb>tbody>tr>td{
+            border-bottom : 1px dashed seagreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>3행5열의 테이블을 출력하되 for루프를 이용해서 출력하세요</h1>
+    <script>
+        var row=prompt("행의 수를 입력하세요");
+        var col=prompt("열의 수를 입력하세요");
+        var bgcr=prompt("배경색을 입력하세요");
+        let str=`<table class='tb' style='background:${bgcr}'>`;
+           for(var i=1;i<=row;i++){
+            str+=`<tr>`;
+                for(var j=1;j<=col;j++){
+                str+=`<td>`;
+                    str+=`${i}행${j}열`
+                str+=`</td>`;
+                    }
+            str+=`</tr>`;
+            }
+            str+=`</table>`;
+        document.write(str);
+    </script>
+</body>
+</html>

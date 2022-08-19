@@ -1,0 +1,60 @@
+<!-- ex10forloop.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10forloop.html</title>
+</head>
+<body>
+    <h1>반복문 - for 루프문</h1>
+    <script>
+        // 자바에서 사용하던 int 대신 var를 사용한다.
+        for(var i=0;i<5;i++){
+            document.write("Hello: "+i+"<br>");
+        }
+        //var를 생략하면 전역변수처럼 사용가능하다
+        for(j=3;j>-1;j--){
+            document.write("JavaScript: "+j+"<br>");
+        }
+        var dan=prompt("구구단의 몇단을 할까요?",2);
+        document.write(`<h1>${dan} 단 </h1>`); //빽틱
+        //[1] for루프 이용해서 구구단을 출력하세요
+        //    단, table태그를 이용해서 테이블 형태로 출력하세요
+        //가로
+        var cr='white';
+        cr=(dan%2==0)?'yellow':'lime';
+       
+        var str="<table border='1' width='150px' style='background:"+cr+"'>";
+            str+="<tr>";
+                for(var i=1;i<10;i++){
+                    str+="<td>"+dan+"x"+i+"="+(dan*i)+"</td>";
+                }
+            str+="</tr>";
+            str+="</table>";
+      
+
+        document.write(str);
+        //세로
+        var str2="<table border='1'>";
+            for(var i=1;i<10;i++){
+                str2+="<tr>"+"<td>"+dan+"x"+i+"="+(dan*i)+"</td>"+"</tr>";
+            }
+            str2+="</table>"
+        document.write(str2);
+
+        //[2] 입력받은 단이 짝수단이면 테이블 배경색을 yellow로 주고
+        //     홀수단이면 lime색으로 주세요
+
+        var str="<table border='1'>";
+            str+="<tr>";
+                for(var i=1;i<10;i++){
+                    str+="<td>"+dan+"x"+i+"="+(dan*i)+"</td>";
+                }
+            str+="</tr>";
+            str+="</table>";
+
+    </script>
+</body>
+</html>

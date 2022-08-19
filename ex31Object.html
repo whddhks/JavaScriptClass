@@ -1,0 +1,55 @@
+<!-- ex31Object.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex31Object.html</title>
+</head>
+<body>
+    <script>
+        /* 객체 생성 방법
+           1. Object객체를 이용해서 생성하는 방법
+           2. 생성자함수를 이용하는 방법
+           3. literal 표기를 이용하는 방법 ==> JSON
+        */
+        let dog=new Object();
+        dog.name='짱구';
+        dog.age=1;
+        dog.bark=function(){
+            let s=`${this.name} 강아지가 멍멍 짖어요`;
+            return s;
+        }
+        document.write(`<h1>${dog.bark()}</h1>`)
+
+        //생성자 함수
+        function Cat(name,age){
+            this.name=name;
+            this.age=age;
+            this.bark=function(){
+            let s=`${this.name} 고양이가 이용이용 짖어요`;
+            return s;
+        }
+        }
+
+        let cat=new Cat('쫑이',2);
+        document.write(`<h2>${cat.bark()}<h2>`);
+
+        //[3] json 형식 javascript object nation?
+        // {} => 객체
+        // [] => 배열
+        let car={
+            name: 'k7',
+            color : 'black',
+            capacity:3000,
+            run: function(km){
+            return `${this.name} 자동차가 시속 ${km} km로 달려요`;
+            }
+        }
+        document.write(`<h2>${car.run(100)}</h2>`)
+        
+    
+    </script>
+</body>
+</html>

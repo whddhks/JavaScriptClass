@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex33jQuery.html</title>
+    <!-- jQuery 라이브러리를 CDN방식으로 참조--------------------------------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- ------------------------------------------------------------------------------- -->
+    <script>
+        window.onload=function(){
+            document.getElementById('a').innerHTML=`<h1>JavaScript</h1>`
+        }
+        //jQuery방식
+        //window.jQuery= window.$ = jQuery 객체 를 =$로 축약해서 사용
+        $(document).ready(function(){
+            //id가 b 인 요소선택해서 jQuery를 넣어 보자
+            $('#b').html('<h1>jQuery</h1>')
+                   .css('color','tomato')
+                   .css('border','2px dashed skyblue')
+        })
+        $(function(){
+            //id가 c인 요소를 찾아 서 바이바이 넣고 css스타일 주기
+            $('#c').html('<h1>bye bye</h1>')
+                    .css({
+                        color : 'blue',
+                        fontSize : '2em',
+                        backgroundColor : 'skyblue',
+                        border: 'thick dotted orange'
+                    })
+                    
+        })
+        </script>
+</head>
+<body>
+    <h1>jQuery 시작하기</h1>
+   <p>jQuery: 자바스크립트 라이브러리</p>
+   <p>1. 다운로드: http://jquery.com<br>
+               http://jqueryui.com[확장 기능 제공]<br>
+      2. CDN방식: Content Delivery Network           
+   
+   </p>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+   <hr>
+   <button class="btn">ajax 요청보내기</button>
+   <script>
+    /*
+        $.ajax({
+            type; "요청방식",
+            url: "요청 url",
+            dataType : "응답유형",
+            success: fuunction(res){.....}
+            error : function(err){.....} 
+        })
+    */
+    
+    $(function(){
+        $('.btn').click(function(){
+            $.ajax({
+                type : 'get',
+                url : 'ex32Date.json',
+                dateType : 'json',
+                success :function(res) {
+                    //성공적으로 응답이 왔을떄
+                    $('#a').html(`<h1>${res.title}</h1>
+                    <h1>${res.actor}</h1>
+                    <img src=${res.poster}>`)
+                },
+                error: function(err){
+                    alert('error발생 :' + err.status)
+                }
+            })
+
+
+        })
+    })
+   </script>
+</body>
+</html>

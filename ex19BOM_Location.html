@@ -1,0 +1,70 @@
+<!-- ex19BOM_Location.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19BOM_Location.html</title>
+    <script>
+        /*location객체의 속성
+        [1] href : 현재 페이지의 url값
+        [2] hostname : 웹호스트의 도메인명을 반환
+        [3] pathname : 현재 페이지의 경로명과 파일명을 반환
+        [4] protocol : 현재 페이지의 프로토콜
+         location의 함수
+        [5] assign('파일명 또는 url') : 새로운 문서를 로드한다.
+        [6] reload() : 새로고침
+        */
+
+        //id가 b2인 버튼을 클릭하면 구글페이지로 이동 시키되 2초뒤에 2초뒤에 이동
+       
+        window.onload=function(){
+            let obj=document.getElementById('b2');
+            let b1=document.querySelector('#b1');
+            let msg=document.getElementById('msg');
+            b1.onclick=()=>{
+                let str=`<h2>${window.location.href}</h2>
+                <h2>${location.hostname}</h2>
+                <h2>${location.pathname}</h2>
+                <h2>${location.protocol}</h2>
+                <h2>${location.port}</h2>
+                `;
+            // document.write(str);
+            msg.innerHTML=str;
+            }
+
+
+
+                obj.onclick=function(){
+                    setTimeout(()=>{
+                        location.href='http://www.google.com';
+                    },2000)}
+        }
+
+        function newPage(){
+            //assign() : 새로운 문서를 로드한다 이동보다는 바뀐다는 느낌인거같음
+            location.assign('ex0.html') 
+        }
+        function refresh(){
+            console.log('reload() 함수 수행예정')
+            setTimeout(()=>{
+                location.reload();
+            },3000)
+        }
+    </script>
+</head>
+<body>
+    <h1>BOM- window.location객체</h1>
+    <button id="b1">location객체의 속성 살펴보기</button>
+    <button id="b2">구글 페이지로 이동</button>
+    <button onclick="newPage()">새로운 페이지</button>
+    <button onclick="refresh()">3초 뒤에 새로고침</button>
+    <button onclick="go()">3초후 페이지 이동</button>
+    <hr color='red'>
+    <div id="msg">
+
+    </div>
+
+</body>
+</html>

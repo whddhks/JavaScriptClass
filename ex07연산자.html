@@ -1,0 +1,43 @@
+<!-- ex07연산자.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07연산자.html</title>
+</head>
+<body>
+    <h1>자바스크립트 연산자</h1>
+    <!-- +, ,-, *, /, %-->
+    <script>
+        var num1=window.prompt("정수1을 입력하세여", 1);
+        var num2=prompt("정수2를 입력하세요",1);
+        print(num1+", typeof "+typeof(num1)); //string 으로 나온다
+        print(num2+", typeof "+typeof(num2));
+        print(num1+"+"+num2+"="+(num1+num2)); // 문자열의 합으로 나옴
+        //문자열을 정수로 변환하는 함수 : parseInt()
+        //parseFloat()....
+        ////입력받은 값을 이용해서 산술연산(+, -, *, /, %)을 수행하세요
+        var a=parseInt(num1);
+        var b=parseInt(num2);
+        print(a+'+'+b+'='+(a+b));
+        print(a+'-'+b+'='+(a-b));
+        print(a+'x'+b+'='+(a*b));
+        print(a+'/'+b+'='+(a/b));
+        print(a+'%'+b+'='+(a%b));
+
+        var x=5;
+        var y="5.0";
+        //[1] == : 값을 비교한다. 자료형이 달라도 값이 같으면  true를 , 다르면 false
+        //[2] === : 자료형과 값을 비교한다. 값이 같아도 자료형이 다르면 false
+        print("x==y : "+(x==y));
+        print("x===y : "+(x===y));
+
+        print(typeof(a)+','+typeof(b));
+        function print(str){
+            document.write("<h2>"+str+"</h2>");
+        }
+    </script>
+</body>
+</html>

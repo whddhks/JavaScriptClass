@@ -1,0 +1,34 @@
+<!-- ex21BOM_Form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex21BOM_Form.html</title>
+    <script>
+        function send(){
+            let val = document.getElementById('userid').value;
+            if(!val){
+                alert('아이디를 입력 하세요')
+                document.getElementById('userid').focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <!-- onsubmit 전송할때 일어나는 이벤트  -->
+    <form id="idfrm" action="idCheck.jsp" onsubmit="return send()">
+        <!-- onsubmit핸들러의 경우 send()함수의 반환값에 따라
+        submit여부를 결정한다. true를 반환하면 서버에 전송하고
+        false반환하면 전송하지 않는다. -->
+
+        <h1>아이디 중복체크</h1>
+        아이디: <input type="text" name="id" id="userid"><p></p>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- ex25Event.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex25Event.html</title>
+    <script>
+        /*event처리 방법
+        [1] html태그 내에서 이벤트 핸들러를 기술하는 방법 onmouseout 같은거
+        [2] literal방식으로 이벤트 핸들러를 기술    btn.onclick같은 거 
+        [3] addEventListener(이벤트종류, 핸들러함수)    자바에서 썼던거
+        */
+        window.onload=init;
+
+        function init(){
+            // alert('init')
+            //class가 e1인 요소중 2번째 요소를 찹조해 봅시다.
+            //document.getElementsbyClassName('클래스이름') => Collection 유형 이라 배열 방식으로 접근하면 된다. 순서대로
+            //        .querySelectorAll('.클래스명')
+            let obj2=document.getElementsByClassName('e1');
+            obj2[1].onclick=function(){ //literal 방식
+                // alert('hi')
+                this.style.backgroundColor='purple';
+                this.style.color='white';
+            }
+            //3번째 class 가 e1인 요소를 더블클릭하면 글자색을 red로 변경
+            obj2[2].addEventListener('dblclick',function(){
+                this.style.color='red';
+            })
+
+
+        }
+    </script>
+</head>
+<body>
+    <h1 class="e1" onmouseover="this.style.border='2px dashed blue'"
+                   onmouseout="this.style.border=''">이벤트 처리1</h1>  
+    <h1 class="e1">이벤트 처리2</h1>
+    <h1 class="e1">이벤트 처리3</h1>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!-- ex08내장함수.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex08내장함수.html</title>
+</head>
+<body>
+    <h1>내장함수</h1>
+    <h2>parseInt(), parseFloat(), Number(), Boolean(), isNaN(), eval()</h2>
+    <script>
+        var a=parseFloat("3.14");
+        var b=Number("2.12");
+        document.write(a+b,"<br>");
+        var str="50+11*2-3";
+        pr(str);
+        //eval(string): 문자열로 된 수식을 파싱해서 실제 연산을 수행한뒤 그 결과값을 반환한다.
+        var result=eval(str);
+        pr(result);
+        //isNaN(값) : 매개변수의 값이 숫자가 아니면 true , 숫자면 false를 반환한다.
+        //is not a number
+        pr(isNaN("55a"));// 자료유형과 상관없다.
+        pr(isNaN("5-2"));
+        pr(isNaN(eval("5-2"))); //f
+        document.write("<hr color='red'>")
+        //Boolean(값): 1=>true, 0=>false
+        pr(Boolean(1));
+        pr(Boolean(0));
+        pr(Boolean(100)); //값을 가지고 있으면  true
+        pr(Boolean("")); //false
+        pr(Boolean(" "));
+        pr(Boolean("0")); //true
+        pr(Boolean(undefined)); //false
+        document.write("<hr color='blue'>")
+        pr(Boolean(null));
+        pr(Boolean(true));
+        pr(Boolean(false));   
+        // 주로 값이 있는지 없는 지 확인한다고사용한다.
+        function pr(str) {
+            document.write("<h2>"+str+"</h2>");
+        }
+    </script>
+
+</body>
+</html>
